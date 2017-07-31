@@ -1,0 +1,20 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.horoscopes_gemini
+    - node.type.horoscopes
+  module:
+    - text
+id: node.horoscopes.horoscopes_gemini
+field_name: horoscopes_gemini
+entity_type: node
+bundle: horoscopes
+label: 'gemini text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

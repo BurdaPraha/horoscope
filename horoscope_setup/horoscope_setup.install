@@ -1,0 +1,14 @@
+<?php
+use Drupal\user\RoleInterface;
+
+/**
+ * @file
+ * Set up source data and destination configuration for the migration example
+ * module. We do this in a separate module so migrate_horoscope itself is
+ * a pure migration module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+

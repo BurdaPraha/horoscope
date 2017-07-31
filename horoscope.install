@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the migrate_example_advanced module.
+ */
+
+use Drupal\migrate_plus\Entity\Migration;
+
+/**
+ * Implements hook_install().
+ */
+function horoscope_install() {
+  // We need the urls to be absolute for the XML source plugin to read them, but
+  // the static configuration files on disk can't know the server and port to
+  // use. So, in the .yml files we provide the REST resources relative to the
+  // site root and here rewrite them to fully-qualified paths.
+
+  /** @var \Drupal\migrate_plus\Entity\MigrationInterface $horoscope_daily_migration */
+  $horoscope_daily_migration = Migration::load('horoscope_daily');
+  if ($horoscope_daily_migration) {
+    $source = $horoscope_daily_migration->get('source');
+    $request = \Drupal::request();
+    $urls = [];
+    foreach ($source['urls'] as $url) {
+      $urls[] = 'http://' . $request->getHttpHost() . $url;
+    }
+    $source['urls'] = $urls;
+    $horoscope_daily_migration->set('source', $source);
+    $horoscope_daily_migration->save();
+  }
+  /** @var \Drupal\migrate_plus\Entity\MigrationInterface $horoscope_weekly_migration */
+  $horoscope_weekly_migration = Migration::load('horoscope_weekly');
+  if ($horoscope_weekly_migration) {
+    $source = $horoscope_weekly_migration->get('source');
+    $request = \Drupal::request();
+    $urls = [];
+    foreach ($source['urls'] as $url) {
+      $urls[] = 'http://' . $request->getHttpHost() . $url;
+    }
+    $source['urls'] = $urls;
+    $horoscope_weekly_migration->set('source', $source);
+    $horoscope_weekly_migration->save();
+  }
+  /** @var \Drupal\migrate_plus\Entity\MigrationInterface $horoscope_monthly_migration */
+  $horoscope_monthly_migration = Migration::load('horoscope_monthly');
+  if ($horoscope_monthly_migration) {
+    $source = $horoscope_monthly_migration->get('source');
+    $request = \Drupal::request();
+    $urls = [];
+    foreach ($source['urls'] as $url) {
+      $urls[] = 'http://' . $request->getHttpHost() . $url;
+    }
+    $source['urls'] = $urls;
+    $horoscope_monthly_migration->set('source', $source);
+    $horoscope_monthly_migration->save();
+  }
+}

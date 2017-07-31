@@ -1,0 +1,156 @@
+//
+// Horoscope page
+//
+.page-horoskopy .region-fixed-content {
+  padding: 20px 16px;
+  @media (min-width: $content-single-col-break) {
+    padding: 20px 0;
+  }
+}
+.page-horoskopy .horoscope-section {
+  font-family: $fontFamilySans;
+  font-size: 16px;
+  @media (min-width: $content-single-col-break) {
+    font-size: 20px;
+  }
+  h1 {
+    font-family: $fontFamily-headlines;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    margin: 0 0 0.6em;
+    @media (min-width: $content-single-col-break) {
+      font-size: 30px;
+      margin: 0 0 0.8em;
+    }
+  }
+  h2 {
+    font-family: $fontFamily-perex;
+    font-size: 18px;
+    margin: 0 0 0.4em;
+    @media (min-width: $content-single-col-break) {
+      font-size: 24px;
+      margin: 0 0 0.6em;
+    }
+  }
+  .wrapper-horoscope-daily, .wrapper-horoscope-weekly .wrapper-horoscope-monthly {
+    display: none;
+  }
+  .wrapper-horoscope-monthly .field-horoscope-item .views-field-title,
+  .wrapper-horoscope-weekly .field-horoscope-item .views-label,
+  .wrapper-horoscope-daily .field-horoscope-item .views-label {
+    display: none;
+  }
+  .wrapper-horoscope-monthly .field-horoscope-item .views-label {
+    font-family: $fontFamily-perex;
+  }
+
+  #horoscope-period {
+    text-align: center;
+    font-size: 14px;
+    margin: 0 0 1.2em;
+    text-transform: uppercase;
+    @media (min-width: $content-single-col-break) {
+      margin: 0 0 3em;
+      font-size: 18px;
+    }
+    li {
+      display: inline-block;
+      margin: 0 4px;
+      @media (min-width: $content-single-col-break) {
+        margin: 0 20px;
+      }
+      a.active {
+        font-family: $fontFamilyMainMenu;
+        border-bottom: 1px solid #000000;
+      }
+    }
+  }
+  #horoscope-signs ul {
+    clear: both;
+    width: 100%;
+    display: block;
+    text-align: justify;
+    padding: 1em 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    @media (min-width: $content-single-col-break) {
+      padding: 2em 0;
+      font-size: 14px;
+    }
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+    }
+    li {
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      position: relative;
+      width: 46%;
+      margin: 0 0 1.4em;
+      @media (min-width: $content-single-col-break) {
+        width: 23%;
+        margin: 0 0 3em;
+      }
+      .ico {
+        display: block;
+        margin: 0 0 12px;
+      }
+      strong {
+        display: block;
+        font-weight: normal;
+        font-family: $fontFamilyMainMenu;
+        margin: 0 0 4px;
+      }
+      .dates {
+        display: inline-block;
+        padding: 5px 10px;
+        color: #878787;
+        letter-spacing: 1px;
+        border-top: 1px solid #000000;
+      }
+    }
+
+  }
+  #horoscope-sign-ico {
+    width: 100%;
+    float: none;
+    margin: 0 0 12px;
+    text-align: center;
+    @media (min-width: $content-single-col-break) {
+      width: 40%;
+      float: left;
+      margin: 0 20px 6px 0;
+    }
+  }
+  #horoscope-sign-text {
+    text-align: center;
+    font-family: $fontFamilySans;
+    margin: 0 0 0.6em;
+    font-size: 18px;
+    text-transform: uppercase;
+    @media (min-width: $content-single-col-break) {
+      margin: 0 0 1.5em;
+      font-size: 24px;
+    }
+    strong {
+      display: block;
+      font-weight: normal;
+      font-family: $fontFamilyMainMenu;
+      margin: 0 0 5px;
+    }
+    .dates {
+      display: inline-block;
+      padding: 5px 12px;
+      color: #878787;
+      letter-spacing: 1px;
+      border-top: 1px solid #000000;
+      @media (min-width: $content-single-col-break) {
+        padding: 7px 30px;
+      }
+    }
+  }
+}

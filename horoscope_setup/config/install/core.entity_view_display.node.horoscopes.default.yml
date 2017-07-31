@@ -1,0 +1,124 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.field.node.horoscopes.horoscopes_aquarius
+    - field.field.node.horoscopes.horoscopes_aries
+    - field.field.node.horoscopes.horoscopes_cancer
+    - field.field.node.horoscopes.horoscopes_capricorn
+    - field.field.node.horoscopes.horoscopes_gemini
+    - field.field.node.horoscopes.horoscopes_leo
+    - field.field.node.horoscopes.horoscopes_libra
+    - field.field.node.horoscopes.horoscopes_period
+    - field.field.node.horoscopes.horoscopes_pisces
+    - field.field.node.horoscopes.horoscopes_sagittarius
+    - field.field.node.horoscopes.horoscopes_scorpio
+    - field.field.node.horoscopes.horoscopes_taurus
+    - field.field.node.horoscopes.horoscopes_virgo
+    - node.type.horoscopes
+  module:
+    - text
+    - user
+id: node.horoscopes.default
+targetEntityType: node
+bundle: horoscopes
+mode: default
+content:
+  horoscopes_aquarius:
+    weight: 123
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_aries:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_cancer:
+    weight: 109
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_capricorn:
+    weight: 121
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_gemini:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_leo:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_libra:
+    weight: 115
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_period:
+    weight: 126
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  horoscopes_pisces:
+    weight: 125
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_sagittarius:
+    weight: 119
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_scorpio:
+    weight: 117
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_taurus:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  horoscopes_virgo:
+    weight: 113
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  shariff_field: true

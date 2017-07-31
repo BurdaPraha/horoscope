@@ -1,0 +1,18 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.horoscopes_period
+    - node.type.horoscopes
+id: node.horoscopes.horoscopes_period
+field_name: horoscopes_period
+entity_type: node
+bundle: horoscopes
+label: period
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

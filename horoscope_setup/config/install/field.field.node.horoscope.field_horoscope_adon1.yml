@@ -1,0 +1,20 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_horoscope_adon1
+    - node.type.horoscope
+  module:
+    - text
+id: node.horoscope.field_horoscope_adon1
+field_name: field_horoscope_adon1
+entity_type: node
+bundle: horoscope
+label: 'Láska a sex'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,20 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.horoscopes_libra
+    - node.type.horoscopes
+  module:
+    - text
+id: node.horoscopes.horoscopes_libra
+field_name: horoscopes_libra
+entity_type: node
+bundle: horoscopes
+label: 'libra text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

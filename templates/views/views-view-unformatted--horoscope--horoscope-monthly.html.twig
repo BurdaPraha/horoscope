@@ -1,0 +1,152 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<div class="wrapper-horoscope-monthly" style="display: none">
+  {%
+  set item_period = rows[0].content['#row']._entity.horoscopes_period ? rows[0].content['#row']._entity.horoscopes_period.value : rows[0].content['#row']._entity.field_horoscope_period.value
+  %}
+            {% if item_period == 'week' %}
+                <h2>{{ "now"|date("W") }}.týden {{ "now"|date("Y") }}</h2>
+            {% elseif item_period == 'month' %}
+                <h2>{{ horoscope_month_text }}</h2>
+            {% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+  row.content['#row']._entity.field_horoscope_sign ? row.content['#row']._entity.field_horoscope_sign.value : 'views-row-week',
+    ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{ row.content }}
+  </div>
+{% endfor %}
+</div>
+<div id="horoscope-signs">
+    <ul>
+        <li class="aries">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Beran"></span>
+          <span class="sign">
+            <strong>Beran</strong>
+            <span class="dates">21. 3. - 20. 4.</span>
+          </span>
+            </a>
+        </li>
+        <li class="taurus">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Býk"></span>
+          <span class="sign">
+            <strong>Býk</strong>
+            <span class="dates">21. 4. - 21. 5.</span>
+          </span>
+            </a>
+        </li>
+        <li class="gemini">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Blíženci"></span>
+          <span class="sign">
+            <strong>Blíženci</strong>
+            <span class="dates">22. 5. - 21. 6.</span>
+          </span>
+            </a>
+        </li>
+        <li class="cancer">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Rak"></span>
+          <span class="sign">
+            <strong>Rak</strong>
+            <span class="dates">22. 6. - 22. 7.</span>
+          </span>
+            </a>
+        </li>
+        <li class="leo">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Lev"></span>
+          <span class="sign">
+            <strong>Lev</strong>
+            <span class="dates">23. 7. - 22. 8.</span>
+          </span>
+            </a>
+        </li>
+        <li class="virgo">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Panna"></span>
+          <span class="sign">
+            <strong>Panna</strong>
+            <span class="dates">23. 8. - 22. 9.</span>
+          </span>
+            </a>
+        </li>
+        <li class="libra">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Váhy"></span>
+          <span class="sign">
+            <strong>Váhy</strong>
+            <span class="dates">23. 9. - 23. 10.</span>
+          </span>
+            </a>
+        </li>
+        <li class="scorpio">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Štír"></span>
+          <span class="sign">
+            <strong>Štír</strong>
+            <span class="dates">24. 10. - 22. 11.</span>
+          </span>
+            </a>
+        </li>
+        <li class="sagittarius">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Střelec"></span>
+          <span class="sign">
+            <strong>Střelec</strong>
+            <span class="dates">23. 11. - 21. 12.</span>
+          </span>
+            </a>
+        </li>
+        <li class="capricorn">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Kozoroh"></span>
+          <span class="sign">
+            <strong>Kozoroh</strong>
+            <span class="dates">22. 12. - 20. 1.</span>
+          </span>
+            </a>
+        </li>
+        <li class="aquarius">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Vodnář"></span>
+          <span class="sign">
+            <strong>Vodnář</strong>
+            <span class="dates">21. 1. - 20. 2.</span>
+          </span>
+            </a>
+        </li>
+        <li class="pisces">
+            <a href="#">
+                <span class="ico"><img src="{{ virgo_ico }}" alt="Ryby"></span>
+          <span class="sign">
+            <strong>Ryby</strong>
+            <span class="dates">21. 2. - 20. 3.</span>
+          </span>
+            </a>
+        </li>
+    </ul>
+</div>

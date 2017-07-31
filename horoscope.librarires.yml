@@ -1,0 +1,8 @@
+horoscope:
+  css:
+    theme:
+      css/horoscope.css: {}
+  js:
+    js/horoscope.js: { }
+  dependencies:
+    - core/jquery

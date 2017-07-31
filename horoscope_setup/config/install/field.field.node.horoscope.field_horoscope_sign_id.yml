@@ -1,0 +1,22 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_horoscope_sign_id
+    - node.type.horoscope
+id: node.horoscope.field_horoscope_sign_id
+field_name: field_horoscope_sign_id
+entity_type: node
+bundle: horoscope
+label: 'Sign Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

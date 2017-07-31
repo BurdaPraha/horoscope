@@ -1,0 +1,10 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - node.type.horoscope
+id: node.horoscope
+target_entity_type_id: node
+target_bundle: horoscope
+default_langcode: site_default
+language_alterable: false

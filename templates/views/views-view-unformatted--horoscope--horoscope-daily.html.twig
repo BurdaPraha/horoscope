@@ -1,0 +1,93 @@
+{#
+/**
+ * @file
+ * Default theme implementation for main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ * - horoscope_month_text: cz month.
+ *
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {{ exposed }}
+  {{ attachment_before }}
+  <h1>Horoskopy</h1>
+  <div id="horoscope-period">
+    <ul>
+      <li class="daily">
+        <a href="#">Denní</a>
+      </li>
+      <li class="weekly">
+        <a href="#">Týdenní</a>
+      </li>
+      <li class="monthly">
+        <a href="#">Měsíční</a>
+      </li>
+    </ul>
+  </div>
+  <div id="horoscope-sign-ico"></div>
+  <div id="horoscope-sign-text"></div>
+  <div class="wrapper-horoscope-daily" style="display: none">
+    <h2>{{ "now"|date("j") }}. {{ horoscope_month_text }} {{ "now"|date("Y") }}</h2>
+    {% for row in rows %}
+      {% if row.content['#row'].node_field_data_title == "now"|date("Y-m-d") %}
+        <div{{ row.attributes.addClass(row_classes) }}>
+          {{ row.content }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {{ empty }}
+  {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

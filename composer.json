@@ -1,0 +1,14 @@
+{
+  "name": "burdapraha/horoscope",
+  "type": "drupal-module",
+  "description": "Custom horoscope module",
+  "minimum-stability": "dev",
+  "keywords": ["Drupal", "Horoscope"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/BurdaPraha/horoscope",
+  "authors": [
+    {
+      "name": "Burda Praha"
+    }
+  ]
+}
