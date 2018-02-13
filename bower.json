@@ -1,7 +1,0 @@
-{
-  "name": "horoscope",
-  "version": "0.0.1",
-  "dependencies": {
-    "drupal/migrate_plus": "~4.x"
-  }
-}

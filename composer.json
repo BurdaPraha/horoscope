@@ -4,11 +4,21 @@
   "description": "Custom horoscope module",
   "minimum-stability": "dev",
   "keywords": ["Drupal", "Horoscope"],
-  "license": "GPL-2.0+",
+  "license": "MIT",
   "homepage": "https://github.com/BurdaPraha/horoscope",
   "authors": [
     {
-      "name": "Burda Praha"
+      "name": "Tomáš Pištora"
     }
-  ]
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "drupal/migrate_plus": "dev-4.x",
+    "drupal/migrate_tools": "dev-4.x"
+  }
 }

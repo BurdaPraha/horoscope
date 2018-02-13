@@ -1,14 +1,8 @@
 var gulp            = require('gulp'),
-    bower           = require('gulp-bower'),
     sequence        = require('gulp-sequence'),
     concat          = require('gulp-concat'),
     sass            = require('gulp-sass'),
     prefixer        = require('gulp-autoprefixer');
-
-gulp.task('bower', function()
-{
-    return bower();
-});
 
 gulp.task('sass', function ()
 {
@@ -27,5 +21,5 @@ gulp.task('sass', function ()
 
 gulp.task('default', function(callback)
 {
-    sequence('bower', 'sass')(callback)
+    sequence('sass')(callback)
 });
