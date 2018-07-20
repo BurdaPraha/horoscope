@@ -28,6 +28,10 @@
                 <h2>{{ horoscope_month_text }}</h2>
             {% endif %}
 {% for row in rows %}
+
+  {% if row.content['#row'].node_field_data_title == "now"|date("Y-W") %}
+
+
   {%
     set row_classes = [
   row.content['#row']._entity.field_horoscope_sign ? row.content['#row']._entity.field_horoscope_sign.value : 'views-row-week',
@@ -36,5 +40,6 @@
   <div{{ row.attributes.addClass(row_classes) }}>
     {{ row.content }}
   </div>
+  {% endif %}
 {% endfor %}
 </div>
