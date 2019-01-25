@@ -19,21 +19,9 @@
   <h3>{{ title }}</h3>
 {% endif %}
 <div class="wrapper-horoscope-monthly" style="display: none">
-  {%
-  set item_period = rows[0].content['#row']._entity.horoscopes_period ? rows[0].content['#row']._entity.horoscopes_period.value : rows[0].content['#row']._entity.field_horoscope_period.value
-  %}
-            {% if item_period == 'week' %}
-                <h2>{{ "now"|date("W") }}.týden {{ "now"|date("Y") }}</h2>
-            {% elseif item_period == 'month' %}
-                <h2>{{ horoscope_month_text }}</h2>
-            {% endif %}
+  <h2>{{ horoscope_month_text }}</h2>
 {% for row in rows %}
-  {%
-    set row_classes = [
-  row.content['#row']._entity.field_horoscope_sign ? row.content['#row']._entity.field_horoscope_sign.value : 'views-row-week',
-    ]
-  %}
-  <div{{ row.attributes.addClass(row_classes) }}>
+  <div{{ row.attributes }}>
     {{ row.content }}
   </div>
 {% endfor %}

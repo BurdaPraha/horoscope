@@ -1,7 +1,9 @@
 # Migration configuration for beer content.
 id: horoscope_monthly
-label: Horoskopy
+label: Měsíční horoskopy
 migration_group: horoscope
+status: true
+
 source:
   # We use the XML source plugin.
   plugin: url
@@ -11,70 +13,74 @@ source:
   # we can't hardcode your local URL, we provide a relative path here which
   # hook_install() will rewrite to a full URL for the current site.
   urls:
-    - /horoskop-mesicni.php
+    - http://elle2.vps5.romanpro.cz/horoskop-mesicni.php
   # Visit the URL above (relative to your site root) and look at it. You can see
   # that <response> is the outer element, and each item we want to import is a
   # <position> element. The item_xpath value is the xpath to use to query the
   # desired elements.
-  item_selector: /horoscopes/horoscope/signs/sign
-  horoscope_period: 'month'
+  item_selector: /horoscopes/horoscope
   # Under 'fields', we list the data items to be imported. The first level keys
   # are the source field names we want to populate (the names to be used as
   # sources in the process configuration below). For each field we're importing,
   # we provide a label (optional - this is for display in migration tools) and
   # an xpath for retrieving that value. It's important to note that this xpath
   # is relative to the elements retrieved by item_xpath.
+
   fields:
     -
-      name: sign
-      label: sign
-      selector: caption
+      name: motto
+      label: 'Topic of the month'
+      selector: month-nature
     -
-      name: adon1
-      label: adon1
-      selector: 'adOns/adOn[@id="1"]'
+      name: text
+      label: 'Text'
+      selector: text
     -
-      name: adon2
-      label: adon2
-      selector: 'adOns/adOn[@id="2"]'
-    -
-      name: adon3
-      label: adon3
-      selector: 'adOns/adOn[@id="3"]'
-    -
-      name: adon4
-      label: adon4
-      selector: 'adOns/adOn[@id="4"]'
+      name: horoscope_month
+      label: 'Month'
+      selector: '@month'
     -
       name: sign_id
-      label: sign_id
-      selector: '@id'
+      label: 'Sign id'
+      selector: 'sign/@id'
     -
-      name: sign_strid
-      label: sign_strid
-      selector: '@strId'
+      name: sign_eng_name
+      label: 'Sign Eng name'
+      selector: 'sign/@strId'
+    -
+      name: sign_name
+      label: 'Sign name'
+      selector: 'sign/@strIdCz'
 
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
   ids:
+    horoscope_month:
+      type: string
     sign_id:
       type: string
+
 destination:
   plugin: entity:node
+
 process:
-  # Hardcode the destination node type (bundle) as 'migrate_example_beer'.
+  hs_sign_eng_name:
+    plugin: callback
+    callable: strtolower
+    source: sign_eng_name
+
   type:
     plugin: default_value
-    default_value: horoscope
-  title: sign
-  field_horoscope_sign: sign_strid
-  field_horoscope_sign_id: sign_id
-  field_horoscope_period: horoscope_period
-  field_horoscope_adon1: adon1
-  field_horoscope_adon2: adon2
-  field_horoscope_adon3: adon3
-  field_horoscope_adon4: adon4
+    default_value: horoscope_monthly
+
+  title: horoscope_month
+  hs_motto: motto
+  hs_text: text
+  hs_sign_id: sign_id
+  hs_sign_eng_name: sign_eng_name
+  hs_sign_name: sign_name
+
   # Some Drupal fields may have multiple components we may want to set
   # separately. For example, text fields may have summaries (teasers) in
   # addition to the full text value. We use / to separate the field name from

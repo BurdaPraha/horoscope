@@ -1,0 +1,65 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.field.node.horoscope_monthly.hs_motto
+    - field.field.node.horoscope_monthly.hs_sign_eng_name
+    - field.field.node.horoscope_monthly.hs_sign_id
+    - field.field.node.horoscope_monthly.hs_sign_name
+    - field.field.node.horoscope_monthly.hs_text
+    - node.type.horoscope_monthly
+  module:
+    - text
+    - user
+id: node.horoscope_monthly.default
+targetEntityType: node
+bundle: horoscope_monthly
+mode: default
+content:
+  hs_motto:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  hs_sign_eng_name:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  hs_sign_id:
+    weight: 104
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  hs_sign_name:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  hs_text:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  shariff_field: true

@@ -1,14 +1,21 @@
 type: module
-name: Burda Praha Horoscope
+name: 'Burda Praha Horoscope'
 description: 'Custom horoscope module based on migrate_plus xml migration.'
 package: Migration
 core: 8.x
 dependencies:
-  - drupal:migrate
-  - migrate_plus:horoscope_setup
-  - drupal:migrate_tools
+  - 'drupal:migrate'
+  - 'migrate_plus:horoscope_setup'
+  - 'drupal:migrate_tools'
+  - 'drupal:php'
+  - node
+  - text
+  - user
 config_devel:
- install:
-   - migrate_plus.migration.horoscope_daily.yml
-   - migrate_plus.migration.horoscope_weekly.yml
-   - migrate_plus.migration.horoscope_monthly.yml
+  install:
+    - migrate_plus.migration.horoscope_daily.yml
+    - migrate_plus.migration.horoscope_weekly.yml
+    - migrate_plus.migration.horoscope_monthly.yml
+mtime: 1533831720
+version: null
+php: 5.5.9

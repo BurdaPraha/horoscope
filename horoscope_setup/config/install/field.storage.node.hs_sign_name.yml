@@ -1,0 +1,21 @@
+uuid: 9549557d-7e0f-4edd-b7da-9e8f47739ac4
+langcode: cs
+status: true
+dependencies:
+  module:
+    - node
+id: node.hs_sign_name
+field_name: hs_sign_name
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

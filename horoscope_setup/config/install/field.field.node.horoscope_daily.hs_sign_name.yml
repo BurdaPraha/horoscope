@@ -1,0 +1,18 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.hs_sign_name
+    - node.type.horoscope_daily
+id: node.horoscope_daily.hs_sign_name
+field_name: hs_sign_name
+entity_type: node
+bundle: horoscope_daily
+label: 'Sign name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

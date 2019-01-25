@@ -1,0 +1,21 @@
+uuid: 66f83cac-8357-4609-8266-4fdddfc93bda
+langcode: cs
+status: true
+dependencies:
+  module:
+    - node
+id: node.hs_lucky_day
+field_name: hs_lucky_day
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

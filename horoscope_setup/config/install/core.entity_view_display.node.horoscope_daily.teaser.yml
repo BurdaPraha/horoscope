@@ -1,0 +1,35 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.horoscope_daily.hs_career
+    - field.field.node.horoscope_daily.hs_health
+    - field.field.node.horoscope_daily.hs_love
+    - field.field.node.horoscope_daily.hs_sign_eng_name
+    - field.field.node.horoscope_daily.hs_sign_id
+    - field.field.node.horoscope_daily.hs_sign_name
+    - field.field.node.horoscope_daily.hs_text
+    - node.type.horoscope_daily
+  module:
+    - user
+id: node.horoscope_daily.teaser
+targetEntityType: node
+bundle: horoscope_daily
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  hs_career: true
+  hs_health: true
+  hs_love: true
+  hs_sign_eng_name: true
+  hs_sign_id: true
+  hs_sign_name: true
+  hs_text: true
+  langcode: true
+  shariff_field: true

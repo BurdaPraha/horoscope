@@ -1,0 +1,19 @@
+uuid: 5abcc155-6243-49f0-80fd-54b30e465737
+langcode: cs
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.hs_health
+field_name: hs_health
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

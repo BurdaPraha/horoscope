@@ -1,12 +1,8 @@
 type: module
-name: Migrate Advanced Example Setup
-description: 'Separate site configuration for the example from the actual migration.'
+name: Horoscope Setup
+description: 'Creates content types and view for horoscopes.'
 package: Migration
 core: 8.x
 hidden: 1
 dependencies:
-  - drupal:comment
-  - drupal:image
   - drupal:text
-  - drupal:menu_ui
-  - drupal:scheduler

@@ -1,7 +1,9 @@
 # Migration configuration for beer content.
 id: horoscope_weekly
-label: Horoskopy
+label: Týdenní horoskopy
 migration_group: horoscope
+status: true
+
 source:
   # We use the XML source plugin.
   plugin: url
@@ -11,147 +13,117 @@ source:
   # we can't hardcode your local URL, we provide a relative path here which
   # hook_install() will rewrite to a full URL for the current site.
   urls:
-    - /horoskop-tydenni.php
+    - http://elle2.vps5.romanpro.cz/horoskop-tydenni.php
   # Visit the URL above (relative to your site root) and look at it. You can see
   # that <response> is the outer element, and each item we want to import is a
   # <position> element. The item_xpath value is the xpath to use to query the
   # desired elements.
   item_selector: /horoscopes/horoscope
-  horoscope_period: 'week'
   # Under 'fields', we list the data items to be imported. The first level keys
   # are the source field names we want to populate (the names to be used as
   # sources in the process configuration below). For each field we're importing,
   # we provide a label (optional - this is for display in migration tools) and
   # an xpath for retrieving that value. It's important to note that this xpath
   # is relative to the elements retrieved by item_xpath.
+#  keys:
+#   - sign_id
+#   - horoscope_day
+
   fields:
     -
-      name: aries_c
-      label: aries
-      selector: 'signs/sign[@id="1"]/caption'
+      name: motto
+      label: 'Motto of the week'
+      selector: week-nature
     -
-      name: aries_t
-      label: aries
-      selector: 'signs/sign[@id="1"]/text'
+      name: lucky_day
+      label: 'Lucky day'
+      selector: day-of-the-week
     -
-      name: taurus_c
-      label: taurus
-      selector: 'signs/sign[@id="2"]/caption'
-    -
-      name: taurus_t
-      label: taurus
-      selector: 'signs/sign[@id="2"]/text'
-    -
-      name: gemini_c
-      label: gemini
-      selector: 'signs/sign[@id="3"]/caption'
-    -
-      name: gemini_t
-      label: gemini
-      selector: 'signs/sign[@id="3"]/text'
-    -
-      name: cancer_c
-      label: cancer
-      selector: 'signs/sign[@id="4"]/caption'
-    -
-      name: cancer_t
-      label: cancer
-      selector: 'signs/sign[@id="4"]/text'
-    -
-      name: leo_c
-      label: leo
-      selector: 'signs/sign[@id="5"]/caption'
-    -
-      name: leo_t
-      label: leo
-      selector: 'signs/sign[@id="5"]/text'
-    -
-      name: virgo_c
-      label: virgo
-      selector: 'signs/sign[@id="6"]/caption'
-    -
-      name: virgo_t
-      label: virgo
-      selector: 'signs/sign[@id="6"]/text'
-    -
-      name: libra_c
-      label: libra
-      selector: 'signs/sign[@id="7"]/caption'
-    -
-      name: libra_t
-      label: libra
-      selector: 'signs/sign[@id="7"]/text'
-    -
-      name: scorpio_c
-      label: scorpio
-      selector: 'signs/sign[@id="8"]/caption'
-    -
-      name: scorpio_t
-      label: scorpio
-      selector: 'signs/sign[@id="8"]/text'
-    -
-      name: sagittarius_c
-      label: sagittarius
-      selector: 'signs/sign[@id="9"]/caption'
-    -
-      name: sagittarius_t
-      label: sagittarius
-      selector: 'signs/sign[@id="9"]/text'
-    -
-      name: capricorn_c
-      label: capricorn
-      selector: 'signs/sign[@id="10"]/caption'
-    -
-      name: capricorn_t
-      label: capricorn
-      selector: 'signs/sign[@id="10"]/text'
-    -
-      name: aquarius_c
-      label: aquarius
-      selector: 'signs/sign[@id="11"]/caption'
-    -
-      name: aquarius_t
-      label: aquarius
-      selector: 'signs/sign[@id="11"]/text'
-    -
-      name: pisces_c
-      label: pisces
-      selector: 'signs/sign[@id="12"]/caption'
-    -
-      name: pisces_t
-      label: pisces
-      selector: 'signs/sign[@id="12"]/text'
+      name: text
+      label: 'Text'
+      selector: text
     -
       name: horoscope_week
-      label: 'week'
+      label: 'Week'
       selector: '@week'
+    -
+      name: sign_id
+      label: 'Sign id'
+      selector: 'sign/@id'
+    -
+      name: sign_eng_name
+      label: 'Sign Eng name'
+      selector: 'sign/@strId'
+    -
+      name: sign_name
+      label: 'Sign name'
+      selector: 'sign/@strIdCz'
+
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
   ids:
     horoscope_week:
       type: string
+    sign_id:
+      type: string
+
 destination:
   plugin: entity:node
+
 process:
-  # Hardcode the destination node type (bundle) as 'migrate_example_beer'.
+
+#  field_exists:
+#    plugin: skip_on_empty
+#    method: row
+#    source: title
+#    message: 'Field career is missing'
+#  horoscope_id:
+#    plugin: concat
+#    source:
+#      - horoscope_id
+#      - title
+
+# hs_sign_eng_name
+#hs_sign_date_to
+#hs_sign_date_from#
+  hs_sign_eng_name:
+    plugin: callback
+    callable: strtolower
+    source: sign_eng_name
+
+  hs_lucky_day:
+    plugin: static_map
+    source: lucky_day
+    map:
+      '1': 'Pondělí'
+      '2': 'Úterý'
+      '3': 'Středa'
+      '4': 'Čtvrtek'
+      '5': 'Pátek'
+      '6': 'Sobota'
+      '7': 'Neděle'
+
+#  hs_lucky_day:
+#    plugin: static_map
+#    source: lucky_day
+#    map:
+#      from: to
+#      this: that
+#    default_value: bar
+
   type:
     plugin: default_value
-    default_value: horoscopes
+    default_value: horoscope_weekly
+
   title: horoscope_week
-  horoscopes_period: horoscope_period
-  horoscopes_aries: aries_t
-  horoscopes_taurus: taurus_t
-  horoscopes_gemini: gemini_t
-  horoscopes_cancer: cancer_t
-  horoscopes_leo: leo_t
-  horoscopes_virgo: virgo_t
-  horoscopes_libra: libra_t
-  horoscopes_scorpio: scorpio_t
-  horoscopes_sagittarius: sagittarius_t
-  horoscopes_capricorn: capricorn_t
-  horoscopes_aquarius: aquarius_t
-  horoscopes_pisces: pisces_t
+  hs_motto: motto
+  hs_lucky_day: lucky_day
+  hs_text: text
+  hs_sign_id: sign_id
+  hs_sign_eng_name: sign_eng_name
+  hs_sign_name: sign_name
+
   # Some Drupal fields may have multiple components we may want to set
   # separately. For example, text fields may have summaries (teasers) in
   # addition to the full text value. We use / to separate the field name from

@@ -1,0 +1,81 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.field.node.horoscope_daily.hs_career
+    - field.field.node.horoscope_daily.hs_health
+    - field.field.node.horoscope_daily.hs_love
+    - field.field.node.horoscope_daily.hs_sign_eng_name
+    - field.field.node.horoscope_daily.hs_sign_id
+    - field.field.node.horoscope_daily.hs_sign_name
+    - field.field.node.horoscope_daily.hs_text
+    - node.type.horoscope_daily
+  module:
+    - text
+    - user
+id: node.horoscope_daily.default
+targetEntityType: node
+bundle: horoscope_daily
+mode: default
+content:
+  hs_career:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  hs_health:
+    weight: 109
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  hs_love:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  hs_sign_eng_name:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  hs_sign_id:
+    weight: 102
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  hs_sign_name:
+    weight: 110
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  hs_text:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  shariff_field: true

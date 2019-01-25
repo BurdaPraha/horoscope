@@ -1,0 +1,20 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.hs_text
+    - node.type.horoscope_monthly
+  module:
+    - text
+id: node.horoscope_monthly.hs_text
+field_name: hs_text
+entity_type: node
+bundle: horoscope_monthly
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

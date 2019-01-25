@@ -1,0 +1,20 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.hs_love
+    - node.type.horoscope_daily
+  module:
+    - text
+id: node.horoscope_daily.hs_love
+field_name: hs_love
+entity_type: node
+bundle: horoscope_daily
+label: Love
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

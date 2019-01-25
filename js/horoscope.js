@@ -2,7 +2,7 @@
 {
     if($("body.page-horoskopy").length > 0)
     {
-        var horoscopes = $('.wrapper-horoscope-daily .views-field, .wrapper-horoscope-weekly .views-field, .wrapper-horoscope-monthly .field-horoscope-item');
+        var horoscopes = $('.wrapper-horoscope-daily .field-horoscope-item, .wrapper-horoscope-weekly .field-horoscope-item, .wrapper-horoscope-monthly .field-horoscope-item');
         var horoscope_wrapper = $('.wrapper-horoscope-daily, .wrapper-horoscope-weekly, .wrapper-horoscope-monthly');
         var period_a = $('#horoscope-period li a');
         var sign_a = $('#horoscope-signs li a');
@@ -18,6 +18,7 @@
             $(this).addClass('active');
             if (period == 'monthly')
             {
+				console.log('period monhtly');
                 var period_el = $('.wrapper-horoscope-monthly');
             }
             else if (period == 'weekly')
@@ -37,11 +38,14 @@
         sign_a.click(function()
         {
             var sign = $(this).closest('li').attr('class');
+			console.log('sign: ' + sign);
             var period = $(this).closest('ul').attr('class');
+			console.log('period: ' + period);
             var sign_ico = $(this).find('.ico').html();
             var sign_text = $(this).find('.sign').html();
-            var sign_el =  $('.wrapper-horoscope-daily .views-field-horoscopes-'+sign+', .wrapper-horoscope-weekly .views-field-horoscopes-'+sign+', .wrapper-horoscope-monthly .field-horoscope-item.'+sign);
-
+            var sign_el =  $('.wrapper-horoscope-daily .sign-'+sign+', .wrapper-horoscope-weekly .field-horoscope-item.sign-'+sign+', .wrapper-horoscope-monthly .field-horoscope-item.sign-'+sign);
+             console.log('sign el: ');
+             console.log( sign_el);
             sign_a.removeClass();
             $(this).addClass('active');
             if (!period) {

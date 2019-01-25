@@ -69,12 +69,13 @@
   <div id="horoscope-sign-text"></div>
   <div class="wrapper-horoscope-daily" style="display: none">
     <h2>{{ "now"|date("j") }}. {{ horoscope_month_text }} {{ "now"|date("Y") }}</h2>
+    {#{ kint(rows) }#}
     {% for row in rows %}
-      {% if row.content['#row'].node_field_data_title == "now"|date("Y-m-d") %}
+     {# {% if row.content['#row'].node_field_data_title == "now"|date("Y-m-d") %} #}
         <div{{ row.attributes.addClass(row_classes) }}>
           {{ row.content }}
         </div>
-      {% endif %}
+    {# {% endif %} #}
     {% endfor %}
   </div>
   {{ empty }}

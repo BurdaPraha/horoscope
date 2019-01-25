@@ -1,0 +1,20 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.hs_health
+    - node.type.horoscope_daily
+  module:
+    - text
+id: node.horoscope_daily.hs_health
+field_name: hs_health
+entity_type: node
+bundle: horoscope_daily
+label: Health
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,18 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.hs_sign_eng_name
+    - node.type.horoscope_weekly
+id: node.horoscope_weekly.hs_sign_eng_name
+field_name: hs_sign_eng_name
+entity_type: node
+bundle: horoscope_weekly
+label: 'Sign eng name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

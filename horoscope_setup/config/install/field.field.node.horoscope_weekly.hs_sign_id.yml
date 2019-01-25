@@ -1,0 +1,22 @@
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.hs_sign_id
+    - node.type.horoscope_weekly
+id: node.horoscope_weekly.hs_sign_id
+field_name: hs_sign_id
+entity_type: node
+bundle: horoscope_weekly
+label: 'Sign id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

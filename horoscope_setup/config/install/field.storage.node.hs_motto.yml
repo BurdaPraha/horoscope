@@ -1,0 +1,19 @@
+uuid: 368c6da2-de8e-4dfc-8f71-4517b7f19d8c
+langcode: cs
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.hs_motto
+field_name: hs_motto
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
