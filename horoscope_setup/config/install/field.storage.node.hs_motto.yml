@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: lKsdX7QonM2ta-nHIDoYr646Ugh3iGdGzOkeRBWvwYM
 id: node.hs_motto
 field_name: hs_motto
 entity_type: node

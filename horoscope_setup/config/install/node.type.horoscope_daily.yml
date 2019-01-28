@@ -20,6 +20,8 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
+_core:
+  default_config_hash: 7QiYlwp2VwzSf5RlpNBSAumYZ1neABSL0hNJo0ycCTU
 name: 'Horoscope daily'
 type: horoscope_daily
 description: ''

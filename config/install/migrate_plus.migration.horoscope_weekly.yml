@@ -13,7 +13,7 @@ source:
   # we can't hardcode your local URL, we provide a relative path here which
   # hook_install() will rewrite to a full URL for the current site.
   urls:
-    - http://elle2.vps5.romanpro.cz/horoskop-tydenni.php
+    - https://horoskopy.org/burda-feed/tydenni
   # Visit the URL above (relative to your site root) and look at it. You can see
   # that <response> is the outer element, and each item we want to import is a
   # <position> element. The item_xpath value is the xpath to use to query the
@@ -33,15 +33,15 @@ source:
     -
       name: motto
       label: 'Motto of the week'
-      selector: week-nature
+      selector: sign/week-nature
     -
       name: lucky_day
       label: 'Lucky day'
-      selector: day-of-the-week
+      selector: sign/day-of-the-week
     -
       name: text
       label: 'Text'
-      selector: text
+      selector: sign/text
     -
       name: horoscope_week
       label: 'Week'

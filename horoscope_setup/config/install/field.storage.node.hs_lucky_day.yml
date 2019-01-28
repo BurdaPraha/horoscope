@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: mzEdM2wadZzEMiVX4RDvMSw3mrsBcrtaNp1q-5Hb0lM
 id: node.hs_lucky_day
 field_name: hs_lucky_day
 entity_type: node

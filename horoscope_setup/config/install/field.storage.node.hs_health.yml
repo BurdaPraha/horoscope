@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: a5fttWes7qinqu1Cd_mjetusvPJqlszWtmwCL5qZtUM
 id: node.hs_health
 field_name: hs_health
 entity_type: node

@@ -5,6 +5,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: MNEcbG0Z0P9Ny2bcVXNUTxcWWh9BU0Itun6eAtduPzA
 id: node.hs_career
 field_name: hs_career
 entity_type: node

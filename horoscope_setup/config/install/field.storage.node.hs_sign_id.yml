@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: CuLI6R1npHmGFYBf_cP0aVnZwJOHv30wBrkHJmTGFXU
 id: node.hs_sign_id
 field_name: hs_sign_id
 entity_type: node
