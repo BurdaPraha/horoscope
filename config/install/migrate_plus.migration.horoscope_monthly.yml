@@ -13,6 +13,7 @@ source:
   # we can't hardcode your local URL, we provide a relative path here which
   # hook_install() will rewrite to a full URL for the current site.
   urls:
+   # - http://elle2.vps5.romanpro.cz/horoskop-mesicni.php
     - https://horoskopy.org/burda-feed/mesicni
   # Visit the URL above (relative to your site root) and look at it. You can see
   # that <response> is the outer element, and each item we want to import is a
@@ -32,7 +33,7 @@ source:
       label: 'Topic of the month'
       selector: sign/month-nature
     -
-      name: text
+      name: main_text
       label: 'Text'
       selector: sign/text
     -
@@ -65,18 +66,23 @@ destination:
   plugin: entity:node
 
 process:
+  type:
+    plugin: default_value
+    default_value: horoscope_monthly
+
+  'hs_text/value': main_text
+  'hs_text/format':
+    plugin: default_value
+    default_value: "full_html"
+
   hs_sign_eng_name:
     plugin: callback
     callable: strtolower
     source: sign_eng_name
 
-  type:
-    plugin: default_value
-    default_value: horoscope_monthly
-
   title: horoscope_month
   hs_motto: motto
-  hs_text: text
+  #hs_text: main_text
   hs_sign_id: sign_id
   hs_sign_eng_name: sign_eng_name
   hs_sign_name: sign_name

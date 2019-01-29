@@ -822,7 +822,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -899,19 +899,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      sorts:
-        field_horoscope_sign_id_value:
-          id: field_horoscope_sign_id_value
-          table: node__field_horoscope_sign_id
-          field: field_horoscope_sign_id_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
+      sorts: {  }
       defaults:
         sorts: false
         filters: false
@@ -1005,7 +993,7 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: true
+            word_boundary: false
             ellipsis: true
             more_link: false
             more_link_text: ''
@@ -1013,7 +1001,7 @@ display:
             strip_tags: false
             trim: false
             preserve_tags: ''
-            html: false
+            html: true
           element_type: ''
           element_class: ''
           element_label_type: ''

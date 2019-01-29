@@ -43,3 +43,31 @@ function horoscope_preprocess_views_view_unformatted(&$variables) {
     $variables['horoscope_month_text'] = format_date(time(), 'custom', 'F'); //Leden
 }
 
+
+function horoscope_cron() {
+
+  //clean up daily horoscopes
+  $result = \Drupal::entityQuery('node')
+      ->condition('type', 'horoscope_daily')
+      ->condition('created', strtotime('-4 weeks'), '<=')
+      ->execute();
+
+    entity_delete_multiple('node', $result);
+
+  //clean up weekly horoscopes
+  $result = \Drupal::entityQuery('node')
+      ->condition('type', 'horoscope_weekly')
+      ->condition('created', strtotime('-6 weeks'), '<=')
+      ->execute();
+
+    entity_delete_multiple('node', $result);
+
+  //clean up monthly horoscopes
+  $result = \Drupal::entityQuery('node')
+      ->condition('type', 'horoscope_monthly')
+      ->condition('created', strtotime('-3 months'), '<=')
+      ->execute();
+
+    entity_delete_multiple('node', $result);
+}
+

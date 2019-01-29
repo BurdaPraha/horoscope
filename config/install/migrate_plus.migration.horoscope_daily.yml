@@ -14,6 +14,7 @@ source:
   # hook_install() will rewrite to a full URL for the current site.
   urls:
     - https://horoskopy.org/burda-feed/denni
+#    - http://elle2.vps5.romanpro.cz/horoskop-denni.php
   # Visit the URL above (relative to your site root) and look at it. You can see
   # that <response> is the outer element, and each item we want to import is a
   # <position> element. The item_xpath value is the xpath to use to query the
@@ -25,9 +26,6 @@ source:
   # we provide a label (optional - this is for display in migration tools) and
   # an xpath for retrieving that value. It's important to note that this xpath
   # is relative to the elements retrieved by item_xpath.
-#  keys:
-#   - sign_id
-#   - horoscope_day
 
   fields:
     -
@@ -43,7 +41,7 @@ source:
       label: 'Love'
       selector: sign/love
     -
-      name: text
+      name: main_text
       label: 'Text'
       selector: sign/text
     -
@@ -76,20 +74,24 @@ destination:
   plugin: entity:node
 
 process:
+  type:
+    plugin: default_value
+    default_value: horoscope_daily
 
   hs_sign_eng_name:
     plugin: callback
     callable: strtolower
     source: sign_eng_name
 
-  type:
+  'hs_text/value': main_text
+  'hs_text/format':
     plugin: default_value
-    default_value: horoscope_daily
+    default_value: "full_html"
 
   title: horoscope_day
   hs_career: career
   hs_health: health
-  hs_text: text
+  #hs_text: main_text
   hs_love: love
   hs_sign_id: sign_id
   hs_sign_eng_name: sign_eng_name

@@ -18,7 +18,6 @@
             $(this).addClass('active');
             if (period == 'monthly')
             {
-				console.log('period monhtly');
                 var period_el = $('.wrapper-horoscope-monthly');
             }
             else if (period == 'weekly')
@@ -38,14 +37,10 @@
         sign_a.click(function()
         {
             var sign = $(this).closest('li').attr('class');
-			console.log('sign: ' + sign);
             var period = $(this).closest('ul').attr('class');
-			console.log('period: ' + period);
             var sign_ico = $(this).find('.ico').html();
             var sign_text = $(this).find('.sign').html();
             var sign_el =  $('.wrapper-horoscope-daily .sign-'+sign+', .wrapper-horoscope-weekly .field-horoscope-item.sign-'+sign+', .wrapper-horoscope-monthly .field-horoscope-item.sign-'+sign);
-             console.log('sign el: ');
-             console.log( sign_el);
             sign_a.removeClass();
             $(this).addClass('active');
             if (!period) {
