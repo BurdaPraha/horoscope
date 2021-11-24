@@ -1,6 +1,6 @@
 (function ( $ )
 {
-    if($("body.page-horoskopy").length > 0)
+    if($(".page-horoskopy").length > 0)
     {
         var horoscopes = $('.wrapper-horoscope-daily .field-horoscope-item, .wrapper-horoscope-weekly .field-horoscope-item, .wrapper-horoscope-monthly .field-horoscope-item');
         var horoscope_wrapper = $('.wrapper-horoscope-daily, .wrapper-horoscope-weekly, .wrapper-horoscope-monthly');
@@ -19,14 +19,22 @@
             if (period == 'monthly')
             {
                 var period_el = $('.wrapper-horoscope-monthly');
+                $('#horoscope-sign-ico, #horoscope-sign-text').css('display', 'block');
             }
             else if (period == 'weekly')
             {
                 var period_el = $('.wrapper-horoscope-weekly');
+                $('#horoscope-sign-ico, #horoscope-sign-text').css('display', 'block');
+            }
+            else if (period == 'reset')
+            {
+                 $('#horoscope-sign-ico, #horoscope-sign-text, .wrapper-horoscope-daily').css('display', 'none');
+
             }
             else
             {
                 var period_el = $('.wrapper-horoscope-daily');
+                $('#horoscope-sign-ico, #horoscope-sign-text').css('display', 'block');
             }
             horoscope_wrapper.css('display','none');
             period_el.css('display','block');
@@ -47,6 +55,12 @@
                 period = "daily";
                 $('#horoscope-signs ul').addClass(period);
                 $('.wrapper-horoscope-daily').css('display','block');
+            }
+                if (period == 'reset') {
+                period = "daily";
+                $('#horoscope-signs ul').removeClass('reset');
+                $('#horoscope-signs ul').addClass(period);
+                $('#horoscope-sign-ico, #horoscope-sign-text, .wrapper-horoscope-daily').css('display', 'block');
             }
             horoscopes.css('display','none');
             $('#horoscope-sign-ico').html(sign_ico);
