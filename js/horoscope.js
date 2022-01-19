@@ -9,6 +9,7 @@
         var hash = window.location.hash;
         horoscopes.css('display','none');
         horoscope_wrapper.css('display','none');
+        $('#horoscope-period ul li.reset').css('display', 'none');
 
         period_a.click(function()
         {
@@ -20,21 +21,25 @@
             {
                 var period_el = $('.wrapper-horoscope-monthly');
                 $('#horoscope-sign-ico, #horoscope-sign-text').css('display', 'block');
+                $('#horoscope-period ul li.reset').css('display', 'inline-block');
             }
             else if (period == 'weekly')
             {
                 var period_el = $('.wrapper-horoscope-weekly');
                 $('#horoscope-sign-ico, #horoscope-sign-text').css('display', 'block');
+                $('#horoscope-period ul li.reset').css('display', 'inline-block');
             }
             else if (period == 'reset')
             {
                  $('#horoscope-sign-ico, #horoscope-sign-text, .wrapper-horoscope-daily').css('display', 'none');
+                 $('#horoscope-period ul li.reset').css('display', 'none');
 
             }
             else
             {
                 var period_el = $('.wrapper-horoscope-daily');
                 $('#horoscope-sign-ico, #horoscope-sign-text').css('display', 'block');
+                $('#horoscope-period ul li.reset').css('display', 'inline-block');
             }
             horoscope_wrapper.css('display','none');
             period_el.css('display','block');
@@ -44,6 +49,7 @@
 
         sign_a.click(function()
         {
+
             var sign = $(this).closest('li').attr('class');
             var period = $(this).closest('ul').attr('class');
             var sign_ico = $(this).find('.ico').html();
@@ -62,6 +68,10 @@
                 $('#horoscope-signs ul').addClass(period);
                 $('#horoscope-sign-ico, #horoscope-sign-text, .wrapper-horoscope-daily').css('display', 'block');
             }
+
+             if (sign) {
+            $('#horoscope-period ul li.reset').css('display', 'inline-block');
+        }
             horoscopes.css('display','none');
             $('#horoscope-sign-ico').html(sign_ico);
             $('#horoscope-sign-text').html(sign_text);
